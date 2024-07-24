@@ -5,13 +5,20 @@ import { StatusBar } from "expo-status-bar";
 import { theme } from "./theme";
 import { CalendarDaysIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline';
 import {MapPinIcon} from 'react-native-heroicons/solid'
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import {debounce} from 'lodash';
 export default function HomeScreen() {
   const [showSearch,toggleSearch] = useState(false);
   const [locations, setLocation] = useState(["Assam","Hyderabad","Dellhi"]);
+  
   const handleLocation = (location : string) =>{
     console.log(location);
   }
+  const handleSearch = (value : string) => {
+    console.log('value : ',value);
+  }
+  const handleTextDebounce = useCallback(debounce(handleSearch,1200),[]);
+
   return (
     <View className="flex-1 relative">
       <StatusBar style="light" />
@@ -24,9 +31,10 @@ export default function HomeScreen() {
             style={{backgroundColor : showSearch ? theme.bgWhite(0.2) : "transparent"}}> 
               {showSearch && (
                 <TextInput 
-                placeholder="Search City"
-                placeholderTextColor={'lightgrey'}
-                className="pl-6 h-10 pb-1 flex-1 text-base text-white"
+                  onChangeText={handleTextDebounce}
+                  placeholder="Search City"
+                  placeholderTextColor={'lightgrey'}
+                  className="pl-6 h-10 pb-1 flex-1 text-base text-white"
               />
               )}
               <TouchableOpacity 

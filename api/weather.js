@@ -17,3 +17,11 @@ const apiCall = async (endpoint) => {
         return null;
     }
 };
+
+export const getWeatherForecast = params => {
+    return apiCall(forecastEndpoint(params));
+};
+
+export const getLocationDetails = params => {
+    return apiCall(locationEndpoint(params));
+};
