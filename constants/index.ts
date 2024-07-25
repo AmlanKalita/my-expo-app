@@ -4,7 +4,7 @@ import sunImage from '../assets/images/sun.png';
 import cloudImage from '../assets/images/cloud.png';
 import heavyRainImage from '../assets/images/heavyrain.png';
 
-export const apiKey = 'b5b18d54f8384acfa30215733242307';
+export const apiKey = process.env.API_KEY;
 interface WeatherImages {
     [key: string]: any;
   }

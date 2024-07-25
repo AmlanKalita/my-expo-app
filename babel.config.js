@@ -5,6 +5,6 @@ module.exports = function (api) {
       "babel-preset-expo",
     ],
     
-    plugins: ["nativewind/babel"],
+    plugins: ["nativewind/babel",'module:react-native-dotenv'],
   };
 };
