@@ -1,0 +1,23 @@
+{
+  "cli": {
+    "version": ">= 10.2.1"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+        "env": {
+          "API_KEY" : "b5b18d54f8384acfa30215733242307"
+        }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+  
+}
